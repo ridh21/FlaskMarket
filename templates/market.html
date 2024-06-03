@@ -1,0 +1,53 @@
+{% extends 'home.html' %}
+
+{% block title %}
+   market
+{% endblock %}
+
+{% block content %}
+    <div class="relative pt-10 w-[70vw] mx-auto overflow-x-auto">
+    <table class="w-full text-sm text-center rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-8 py-3 text-center">
+                    Product ID
+                </th>
+                <th scope="col" class="px-14 py-3 text-center">
+                    Name
+                </th>
+                <th scope="col" class="px-[5vw] py-3 text-center">
+                    Barcode
+                </th>
+                <th scope="col" class="px-14 py-3 text-center">
+                    Price
+                </th>
+                <th scope="col" class="px-14 py-3 text-center">
+                    Options
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr class="bg-white border-b hover:bg-gray-600 dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" class="px-14 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center">
+                    {{item.id}}
+                </th>
+                <td class="px-14 py-3 text-center">
+                    {{item.name}}
+                </td>
+                <td class="px-14 py-3 text-center">
+                    {{item.barcode}}
+                </td>
+                <td class="px-14 py-3 text-center">
+                    ${{item.price}}
+                </td>
+                <td>
+                    <button class="px-3 py-2 bg-green-500 rounded-md text-white mr-2">More Info</button>
+                    <button class="px-3 py-2 bg-orange-500 text-white rounded-md">Purchase this item</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+{% endblock %}
